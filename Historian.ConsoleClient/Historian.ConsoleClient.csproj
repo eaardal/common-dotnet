@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BFD65CA-066C-493F-9D8B-5BE459B01E7B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{B3FD56C9-F26D-46F1-AD1F-FE230CE41611}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Historian</RootNamespace>
-    <AssemblyName>Historian</AssemblyName>
+    <RootNamespace>Historian.ConsoleClient</RootNamespace>
+    <AssemblyName>Historian.ConsoleClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,35 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Akka\ActorFacade.cs" />
-    <Compile Include="Akka\ActorMetadata.cs" />
-    <Compile Include="Akka\ActorPathType.cs" />
-    <Compile Include="Akka\ActorSystemExtensions.cs" />
-    <Compile Include="Akka\ClientServer\ClientConnectionInfo.cs" />
-    <Compile Include="Akka\ClientServer\ServerConnectionInfo.cs" />
-    <Compile Include="Akka\LoggingReceiveActor.cs" />
-    <Compile Include="CompileConfigurationMode.cs" />
-    <Compile Include="ConsoleWindow.cs" />
-    <Compile Include="FilesystemAdapter.cs" />
-    <Compile Include="IoC.cs" />
-    <Compile Include="LinqExtensions.cs" />
-    <Compile Include="Logging\ILog.cs" />
-    <Compile Include="Logging\LogFactories\ILogFactory.cs" />
-    <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\Log.cs" />
-    <Compile Include="Logging\LogEntry.cs" />
-    <Compile Include="Logging\LogFactories\ConsoleLogFactory.cs" />
-    <Compile Include="Logging\LogFactories\DebugLogFactory.cs" />
-    <Compile Include="Logging\LogFactories\MessagePublishingLogFactory.cs" />
-    <Compile Include="Logging\LogFactories\SerilogLogFactory.cs" />
-    <Compile Include="Logging\LogFactories\TraceLogFactory.cs" />
-    <Compile Include="Logging\LogFactories\WindowsEventLogLogFactory.cs" />
-    <Compile Include="Logging\Logger.cs" />
-    <Compile Include="MessageBus.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Logging\Severity.cs" />
-    <Compile Include="Akka\RemoteActorMetadata.cs" />
-    <Compile Include="StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Historian\Historian.csproj">
+      <Project>{7BFD65CA-066C-493F-9D8B-5BE459B01E7B}</Project>
+      <Name>Historian</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

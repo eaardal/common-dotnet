@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Historian
+namespace Historian.Akka
 {
-    public class Class1
+    public enum ActorPathType
     {
+        Absolute, Relative
     }
 }
